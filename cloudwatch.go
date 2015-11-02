@@ -45,7 +45,9 @@ func NewAdapter(route *router.Route) (router.LogAdapter, error) {
 	if err != nil {
 		return nil, err
 	}
-
+	
+	log.Infof("Creating CloudWatch adapter - group: %s, stream: %s", group, stream)
+	
 	logstream, err := NewLogStream(group, stream)
 	if err != nil {
 		return nil, err
